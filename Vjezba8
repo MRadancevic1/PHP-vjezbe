@@ -1,0 +1,29 @@
+<?php
+    echo "<p>Lista vozila:</p><ul>";
+    $cars = array("Audi", "BMW", "Renault", "Citroen");
+    foreach ($cars as $car) {
+    echo "<li>$car</li>";
+    }
+    echo "</ul>";
+
+    $selectedCar = isset($_POST['cars']) ? $_POST['cars'] : $cars[0];
+
+    echo "<form method='post'>";
+    echo "<p>Lista vozila:</p><ul>";
+
+    $cars = array("Audi", "BMW", "Renault", "Citroen");
+
+    foreach ($cars as $car) {
+        echo "<li><input type='radio' name='cars' value='$car'";
+        if ($car == $selectedCar) {
+            echo " checked";
+        }
+        echo "> $car</li>";
+    }
+
+    echo "</ul>";
+    echo "<input type='submit' value='Prikaži odabrano vozilo'>";
+    echo "</form>";
+
+    echo "<p>Odabrano vozilo: $selectedCar</p>";
+?>
